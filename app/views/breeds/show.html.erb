@@ -1,2 +1,11 @@
-<h1>Breeds#show</h1>
-<p>Find me in app/views/breeds/show.html.erb</p>
+<h2>Breed: <span class="light"><%= @breed.name%></span></h2>
+
+<div class="row">
+  <% @breed.pets.each do |pet| %>
+    <div class="col-4">
+      <img src="<%= pet.image %>" alt="<%= pet.name %> image" />
+      <p><%= link_to pet.breed.name, pet.breed %></p>
+      <p><%= link_to pet.breed.pet_group.name, pet.breed.pet_group %></p>
+    </div>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 class BreedsController < ApplicationController
   def index
-    @breeds = Breed.includes(:pet_group)
+    @breeds = Breed.includes(:pet_group, :pets)
   end
 
   def show
