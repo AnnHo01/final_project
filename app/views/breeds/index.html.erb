@@ -1,5 +1,8 @@
 <h2>List of Breeds available for adoption</h2>
 
+
+<%= paginate @breeds , window: 1 %>
+
 <div class="row">
   <% @breeds.each do |breed| %>
     <div class="col-4">
@@ -10,3 +13,5 @@
     </div>
   <% end %>
 </div>
+
+<%= paginate @breeds , window: 1 %>

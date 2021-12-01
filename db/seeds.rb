@@ -22,7 +22,6 @@ furries = CSV.parse(data3, headers: true, encoding: "utf-8")
 
 pets = ["Dog", "Cat", "Small Furry"]
 
-i = 0
 pets.each do |p|
   pet_group = PetGroup.find_or_create_by(
     name: p,
@@ -32,32 +31,25 @@ pets.each do |p|
   if pet_group&.valid?
     if p == "Dog"
       dogs.each do |d|
-        if i < 15
-          # Create a breed data
-          breed = pet_group.breeds.create(
-            name:  d['name'],
-            price: Faker::Number.between(from: 0.00, to: 20000.00),
-            description: "#{d['bred_for']}. Lifespan: #{d['life_span']}; can be described as #{d['temperament']}",
-            image: d['image/url']
-          )
-        end
-        i+=1
+        # Create a breed data
+        breed = pet_group.breeds.create(
+          name:  d['name'],
+          price: Faker::Number.between(from: 0.00, to: 20000.00),
+          description: "#{d['bred_for']}. Lifespan: #{d['life_span']}; can be described as #{d['temperament']}",
+          image: d['image/url']
+        )
       end
     end
 
-    i = 0
     if p == "Cat"
       cats.each do |c|
-        if i < 15
-          # Create a breed data
-          breed = pet_group.breeds.create(
-            name:  c['name'],
-            price: Faker::Number.between(from: 0.00, to: 20000.00),
-            description: "#{c['description']}. Lifespan: #{c['life_span']}; can be described as #{c['temperament']}",
-            image: c['image/url']
-          )
-        end
-        i+=1
+        # Create a breed data
+        breed = pet_group.breeds.create(
+          name:  c['name'],
+          price: Faker::Number.between(from: 0.00, to: 20000.00),
+          description: "#{c['description']}. Lifespan: #{c['life_span']}; can be described as #{c['temperament']}",
+          image: c['image/url']
+        )
       end
     end
 
