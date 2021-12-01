@@ -24,7 +24,10 @@ pets = ["Dog", "Cat", "Small Furry"]
 
 i = 0
 pets.each do |p|
-  pet_group = PetGroup.find_or_create_by(name: p)
+  pet_group = PetGroup.find_or_create_by(
+    name: p,
+    image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{p}"])
+  )
 
   if pet_group&.valid?
     if p == "Dog"
@@ -65,7 +68,7 @@ pets.each do |p|
           name:  sf['breeds/name'],
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "Gathering information",
-          image: Faker::LoremFlickr.image(size: "50x60", search_terms: ["#{sf['breeds/name']}"])
+          image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{sf['breeds/name'].split("/")[0]}" , "pet"], match_all: true)
         )
       end
     end

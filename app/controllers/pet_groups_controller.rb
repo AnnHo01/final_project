@@ -4,6 +4,6 @@ class PetGroupsController < ApplicationController
   end
 
   def show
-    @pet_group = PetGroup.find(param[:id])
+    @pet_group = PetGroup.find(params[:id])
   end
 end
