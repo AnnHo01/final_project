@@ -1,11 +1,13 @@
-<h2>Breed: <span class="light"><%= @breed.name%></span></h2>
+<h2><%= @breed.name%></h2>
 
-<div class="row">
-  <% @breed.pets.each do |pet| %>
-    <div class="col-4">
-      <img src="<%= pet.image %>" alt="<%= pet.name %> image" />
-      <p><%= link_to pet.breed.name, pet.breed %></p>
-      <p><%= link_to pet.breed.pet_group.name, pet.breed.pet_group %></p>
-    </div>
-  <% end %>
+<div class="d-inline-block margin-top">
+  <h3>Breed: <span class="light"><%= @breed.name%></span></h3>
+  <p><span class="bold">Pet Type:</span> <%= link_to @breed.pet_group.name, @breed.pet_group %></p>
+  <p><%= @breed.description %></p>
+  <p><span class="bold">Available for adoption:</span> <%= @breed.qty %></p>
+  <p><span class="bold">Average Price:</span> $<%= @breed.price.round(2) %></p>
+</div>
+
+<div class="d-inline float-end margin-top">
+  <img src="<%= @breed.image %>" alt="<%= @breed.name %> image">
 </div>
