@@ -34,7 +34,7 @@ pets.each do |p|
           breed = pet_group.breeds.create(
             name:  d['name'],
             price: Faker::Number.between(from: 0.00, to: 20000.00),
-            description: d['bred_for'] + '. Lifespan: ' + d['life_span'] + "; can be described as " + d['temperament'],
+            description: "#{d['bred_for']}. Lifespan: #{d['life_span']}; can be described as #{d['temperament']}",
             image: d['image/url']
           )
         end
@@ -50,7 +50,7 @@ pets.each do |p|
           breed = pet_group.breeds.create(
             name:  c['name'],
             price: Faker::Number.between(from: 0.00, to: 20000.00),
-            description: c['description'] + '. Lifespan: ' + c['life_span'] + "; can be described as " + c['temperament'],
+            description: "#{c['description']}. Lifespan: #{c['life_span']}; can be described as #{c['temperament']}",
             image: c['image/url']
           )
         end
@@ -65,7 +65,7 @@ pets.each do |p|
           name:  sf['breeds/name'],
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "Gathering information",
-          image: Faker::LoremFlickr.image(size: "300x300", search_terms: sf['breeds/name'])
+          image: Faker::LoremFlickr.image(size: "50x60", search_terms: ["#{sf['breeds/name']}"])
         )
       end
     end
