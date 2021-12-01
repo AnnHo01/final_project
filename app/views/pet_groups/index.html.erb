@@ -1,2 +1,11 @@
-<h1>PetGroups#index</h1>
-<p>Find me in app/views/pet_groups/index.html.erb</p>
+<h2>List of Animals available for adoption</h2>
+
+<div class="row">
+  <% @pet_groups.each do |pg| %>
+    <div class="col-4">
+      <img src="<%= pg.image %>" alt="<%= pg.name %> image" />
+      <p><%= link_to pg.name, pg %></p>
+    </div>
+  <% end %>
+</div>
+
