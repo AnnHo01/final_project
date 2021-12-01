@@ -9,18 +9,21 @@ PetGroup.delete_all
 file1 = Rails.root.join("db/cats.csv")
 file2 = Rails.root.join("db/dogs.csv")
 file3 = Rails.root.join("db/small-furry.csv")
+file4 = Rails.root.join("db/rabbits.csv")
 
 puts "Loading cats, dogs, and small animals data from CSV files"
 
 data1 = File.read(file1)
 data2 = File.read(file2)
 data3 = File.read(file3)
+data4 = File.read(file4)
 
 cats = CSV.parse(data1, headers: true, encoding: "utf-8")
 dogs = CSV.parse(data2, headers: true, encoding: "utf-8")
 furries = CSV.parse(data3, headers: true, encoding: "utf-8")
+rabbits = CSV.parse(data4, headers: true, encoding: "utf-8")
 
-pets = ["Dog", "Cat", "Small Furry"]
+pets = ["Dog", "Cat", "Small Furry", "Rabbits"]
 
 pets.each do |p|
   pet_group = PetGroup.find_or_create_by(
@@ -61,6 +64,18 @@ pets.each do |p|
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "Gathering information",
           image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{sf['breeds/name'].split("/")[0]}" , "pet"], match_all: true)
+        )
+      end
+    end
+
+    if p == "Rabbits"
+      rabbits.each do |rab|
+        # Create a breed data
+        breed = pet_group.breeds.create(
+          name:  rab['breeds/name'],
+          price: Faker::Number.between(from: 0.00, to: 20000.00),
+          description: "Gathering information",
+          image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{rab['breeds/name'].split("/")[0]}" , "rabbit"], match_all: true)
         )
       end
     end
