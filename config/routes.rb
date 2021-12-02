@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root :to => "pet_groups#index"
-  resources :breeds, only: [:index, :show]
+  resources :breeds, only: [:index, :show] do
+    collection do
+      get "search"
+    end
+  end
   resources :pet_groups, only: [:index, :show]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

@@ -1,13 +1,19 @@
 <h2><%= @breed.name%></h2>
 
-<div class="d-inline-block margin-top">
-  <h3>Breed: <span class="light"><%= @breed.name%></span></h3>
-  <p><span class="bold">Pet Type:</span> <%= link_to @breed.pet_group.name, @breed.pet_group %></p>
-  <p><%= @breed.description %></p>
-  <p><span class="bold">Available for adoption:</span> <%= @breed.qty %></p>
-  <p><span class="bold">Average Price:</span> $<%= @breed.price.round(2) %></p>
-</div>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="d-inline-block margin-top">
+      <h3>Breed: <span class="light"><%= @breed.name%></span></h3>
+      <p><span class="bold">Pet Type:</span> <%= link_to @breed.pet_group.name, @breed.pet_group %></p>
+      <p><%= @breed.description %></p>
+      <p><span class="bold">Available for adoption:</span> <%= @breed.qty %></p>
+      <p><span class="bold">Average Price:</span> $<%= @breed.price.round(2) %></p>
+    </div>
+  </div>
 
-<div class="d-inline float-end margin-top">
-  <img src="<%= @breed.image %>" alt="<%= @breed.name %> image">
+  <div class="col-sm-4">
+    <div class="d-inline float-end margin-top">
+      <img src="<%= @breed.image %>" alt="<%= @breed.name %> image">
+    </div>
+  </div>
 </div>
