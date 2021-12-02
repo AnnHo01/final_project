@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_163124) do
+ActiveRecord::Schema.define(version: 2021_12_02_055018) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2021_12_01_163124) do
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "price"
     t.index ["pet_group_id"], name: "index_breeds_on_pet_group_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "permalink"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "pet_groups", force: :cascade do |t|
