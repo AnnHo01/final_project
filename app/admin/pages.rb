@@ -5,7 +5,7 @@ ActiveAdmin.register Page do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :title, :content, :permalink
+  permit_params :title, :content, :permalink
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register Page do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end

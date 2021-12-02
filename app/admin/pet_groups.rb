@@ -5,7 +5,7 @@ ActiveAdmin.register PetGroup do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :total_pets, :image
+  permit_params :name, :total_pets, :image
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register PetGroup do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end

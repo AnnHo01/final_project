@@ -5,7 +5,7 @@ ActiveAdmin.register Pet do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :price, :description, :image, :breed_id
+  permit_params :name, :price, :description, :image, :breed_id
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register Pet do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end
