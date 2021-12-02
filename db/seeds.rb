@@ -4,7 +4,7 @@ Pet.delete_all
 Breed.delete_all
 PetGroup.delete_all
 
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdmirnUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 file1 = Rails.root.join("db/cats.csv")
 file2 = Rails.root.join("db/dogs.csv")
