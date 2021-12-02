@@ -1,5 +1,8 @@
 <h2><%= @about.title %></h2>
 
-<p><%= @about.content %></p>
+<% @new_line = @about.content.split("/").map(&:strip)
+  @new_line.each do |item| %>
+      <p><%= item %></p>
+<% end %>
 
 <%= image_tag("final_project.png", :alt => "ERD demonstration") %>

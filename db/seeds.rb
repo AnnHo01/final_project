@@ -3,8 +3,9 @@ require 'csv'
 Pet.delete_all
 Breed.delete_all
 PetGroup.delete_all
+Page.delete_all
 
-AdmirnUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 file1 = Rails.root.join("db/cats.csv")
 file2 = Rails.root.join("db/dogs.csv")
@@ -28,7 +29,8 @@ pets = ["Dog", "Cat", "Small Furry", "Rabbits"]
 pets.each do |p|
   pet_group = PetGroup.find_or_create_by(
     name: p,
-    image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{p}"])
+    image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{p}"]),
+    total_pets: 0
   )
 
   if pet_group&.valid?
@@ -86,14 +88,15 @@ end
 
 Page.create(
   title: 'About Us',
-  content: 'At Happy House Pet Adoption, we value pets and always seeks for a loving home for our adorable “tenants” at Happy House. We mainly rescue dogs, cats, and small animals such as hamsters, guinea pigs, and rabbits.
-  Since we are a family non-profit business, we only have around 8 – 10 members that are taking place to take care for the pets. However, we also have several volunteers each week to donate and play with the pets, to ensure interaction and enjoyment for our lovely “tenants”.
-  Due to COVID, we figured it’s time to move the business online for accessibility. Before, we have a small shop where we hosted more than hundreds of pets and posted their information on our social media so that people know and come to adopt our lovely “tenants”. We figures it would be best to have a tool online so that more and more people know about our business and gain easy access to give us a hand in adopting our pets.
-  The business has been around for 2 years and we have rescued more than 400 pets and had found more than 200 loving families for them. We’re still in the process of expanding our business and looking for more members that are willing to put effort in saving these poor creatures. Pets still have feeling, and still are living creatures, so why would we treat them badly?
-  We are targeting customers of every age, as long as they showed that they’re a pet lover, and that they are responsible and stable enough to take care for one of our children, then we always welcome them to adopt our pets.
+  content: 'At Happy House Pet Adoption, we value pets and always seeks for a loving home for our adorable “tenants” at Happy House. We mainly rescue dogs, cats, and small animals such as hamsters, guinea pigs, and rabbits./
+  Since we are a family non-profit business, we only have around 8 – 10 members that are taking place to take care for the pets. However, we also have several volunteers each week to donate and play with the pets, to ensure interaction and enjoyment for our lovely “tenants”./
+  Due to COVID, we figured it’s time to move the business online for accessibility. Before, we have a small shop where we hosted more than hundreds of pets and posted their information on our social media so that people know and come to adopt our lovely “tenants”. We figures it would be best to have a tool online so that more and more people know about our business and gain easy access to give us a hand in adopting our pets./
+  The business has been around for 2 years and we have rescued more than 400 pets and had found more than 200 loving families for them. We’re still in the process of expanding our business and looking for more members that are willing to put effort in saving these poor creatures. Pets still have feeling, and still are living creatures, so why would we treat them badly?/
+  We are targeting customers of every age, as long as they showed that they’re a pet lover, and that they are responsible and stable enough to take care for one of our children, then we always welcome them to adopt our pets./
   Here\'s an ERD to demonstrate our ecommerce site: ',
   permalink: 'about'
 )
 
 puts "#{PetGroup.count} PetGroup created"
 puts "#{Breed.count} Breeds created"
+puts "#{Page.count} Pages created"

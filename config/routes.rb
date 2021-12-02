@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'pages/permalink'
+  get 'pages/:permalink' => 'pages#permalink' , as: 'permalink' #using it in ruby: permalink_path
   root :to => "pet_groups#index"
   resources :breeds, only: [:index, :show] do
     collection do
