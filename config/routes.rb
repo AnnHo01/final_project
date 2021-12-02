@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/permalink'
   root :to => "pet_groups#index"
   resources :breeds, only: [:index, :show] do
     collection do
