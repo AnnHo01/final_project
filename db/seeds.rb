@@ -29,7 +29,7 @@ pets = ["Dog", "Cat", "Small Furry", "Rabbits"]
 pets.each do |p|
   pet_group = PetGroup.find_or_create_by(
     name: p,
-    image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{p}"]),
+    image_URL: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{p}"]),
     total_pets: 0
   )
 
@@ -41,7 +41,7 @@ pets.each do |p|
           name:  d['name'],
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "#{d['bred_for']}. Lifespan: #{d['life_span']}; can be described as #{d['temperament']}",
-          image: d['image/url']
+          image_URL: d['image/url']
         )
       end
     end
@@ -53,7 +53,7 @@ pets.each do |p|
           name:  c['name'],
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "#{c['description']}. Lifespan: #{c['life_span']}; can be described as #{c['temperament']}",
-          image: c['image/url']
+          image_URL: c['image/url']
         )
       end
     end
@@ -65,7 +65,7 @@ pets.each do |p|
           name:  sf['breeds/name'],
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "Gathering information",
-          image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{sf['breeds/name'].split("/")[0]}" , "pet"], match_all: true)
+          image_URL: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{sf['breeds/name'].split("/")[0]}" , "pet"], match_all: true)
         )
       end
     end
@@ -77,7 +77,7 @@ pets.each do |p|
           name:  rab['breeds/name'],
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "Gathering information",
-          image: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{rab['breeds/name'].split("/")[0]}" , "rabbit"], match_all: true)
+          image_URL: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{rab['breeds/name'].split("/")[0]}" , "rabbit"], match_all: true)
         )
       end
     end
