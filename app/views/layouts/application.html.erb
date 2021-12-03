@@ -26,7 +26,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="petList" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Adoptable Pet</a>
               <ul class="dropdown-menu" aria-labelledby="petList">
-                <% @pet_groups.each do |pg| %>
+                <% @pet_groups_nav.each do |pg| %>
                   <li><%= link_to pg.name, pg, class: "dropdown-item" %></li>
                 <% end %>
               </ul>

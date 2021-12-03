@@ -6,7 +6,7 @@
   <div class="row">
     <% @pg_pag.each do |breed| %>
       <div class="col-4">
-        <img src="<%= breed.image %>" alt="<%= breed.name %> image" />
+        <img src="<%= breed.image_URL %>" alt="<%= breed.name %> image" />
         <p><%= link_to breed.name, breed %></p>
         <p><%= breed.price.round(2) %></p>
       </div>

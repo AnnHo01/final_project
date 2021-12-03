@@ -3,7 +3,7 @@
 <div class="row">
   <% @pet_groups.each do |pg| %>
     <div class="col-4">
-      <img src="<%= pg.image %>" alt="<%= pg.name %> image" />
+      <img src="<%= pg.image_URL %>" alt="<%= pg.name %> image" />
       <p><%= link_to pg.name, pg %></p>
     </div>
   <% end %>

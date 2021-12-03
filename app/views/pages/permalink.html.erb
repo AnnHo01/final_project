@@ -5,4 +5,12 @@
       <p><%= item %></p>
 <% end %>
 
-<%= image_tag("final_project.png", :alt => "ERD demonstration") %>
+<% if @about.image.present? %>
+  <div class="card-image">
+      <figure class="image">
+        <%= image_tag @about.image %>
+      </figure>
+    </div>
+  <% else %>
+    <%= image_tag("final_project.png", :alt => "ERD demonstration") %>
+  <% end %>
