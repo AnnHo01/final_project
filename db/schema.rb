@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_160146) do
+ActiveRecord::Schema.define(version: 2021_12_02_221911) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_160146) do
   create_table "breeds", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.text "image"
+    t.text "image_URL"
     t.integer "qty"
     t.integer "pet_group_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -91,14 +91,14 @@ ActiveRecord::Schema.define(version: 2021_12_02_160146) do
     t.integer "total_pets"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "image"
+    t.text "image_URL"
   end
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
     t.text "description"
-    t.text "image"
+    t.text "image_URL"
     t.integer "breed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
