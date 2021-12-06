@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def cart
     # You can pass an array of ids, and you'll get back a collection
-    Product.find[session[:shopping_cart]]
+    Breed.find(session[:shopping_cart])
     # pass an array of product id's.. get a collection of products!
   end
 end

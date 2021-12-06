@@ -21,6 +21,7 @@
     </div>
 
     <%= form_with url: cart_index_path, method: :post do %>
+      <%= hidden_field_tag(:id, breed.id) %>
       <%= button_tag 'Add to Cart' %>
     <% end %>
   <% end %>
