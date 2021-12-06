@@ -7,7 +7,7 @@
       <p><span class="bold">Pet Type:</span> <%= link_to @breed.pet_group.name, @breed.pet_group %></p>
       <p><%= @breed.description %></p>
       <p><span class="bold">Available for adoption:</span> <%= @breed.qty %></p>
-      <p><span class="bold">Average Price:</span> $<%= @breed.price.round(2) %></p>
+      <p><span class="bold">Average Price:</span> $<%= number_to_currency @breed.price %></p>
     </div>
   </div>
 

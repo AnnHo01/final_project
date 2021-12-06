@@ -17,8 +17,12 @@
       <% end %>
       <p><%= link_to breed.name, breed %></p>
       <p><%= link_to breed.pet_group.name, breed.pet_group %></p>
-      <p><%= breed.price.round(2) %></p>
+      <p><%= number_to_currency breed.price %></p>
     </div>
+
+    <%= form_with url: cart_index_path, method: :post do %>
+      <%= button_tag 'Add to Cart' %>
+    <% end %>
   <% end %>
 </div>
 
