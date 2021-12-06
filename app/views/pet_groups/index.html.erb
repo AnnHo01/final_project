@@ -3,7 +3,15 @@
 <div class="row">
   <% @pet_groups.each do |pg| %>
     <div class="col-4">
-      <img src="<%= pg.image %>" alt="<%= pg.name %> image" />
+      <% if pg.image.present? %>
+        <div class="card-image">
+          <figure class="image">
+            <%= image_tag breed.image %>
+          </figure>
+        </div>
+      <% else %>
+        <img src="<%= pg.image_URL %>" alt="<%= pg.name %> image" />
+      <% end %>
       <p><%= link_to pg.name, pg %></p>
     </div>
   <% end %>
