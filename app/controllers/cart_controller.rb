@@ -4,15 +4,26 @@ class CartController < ApplicationController
   def create
     # Add params[:id] to cart
     # The logger will show in the rails server.. super useful for debugging!!
-    breed_id = params[:id]
-    logger.debug("Adding #{breed_id} to cart.")
+    logger.debug("Adding #{params[:id]} to cart.")
+    breed_id = params[:id].to_i
+    session[:shopping_cart] << breed_id
+
     breed = Breed.find(breed_id)
-    session[:shopping_cart] << breed_id.to_i
+    flash[:notice] = "➕ #{breed.name} added to cart."
+
     redirect_to root_path
   end
 
   # DELETE /cart/:id
   def destroy
     # removes params[:id] from cart
+    logger.debug("Removing #{params[:id]} from cart.")
+    breed_id = params[:id].to_i
+    session[:shopping_cart].delete(breed_id)
+
+    breed = Breed.find(breed_id)
+    flash[:notice] = "➖ #{breed.name} Removed from cart."
+
+    redirect_to root_path
   end
 end
