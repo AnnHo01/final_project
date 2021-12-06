@@ -5,7 +5,16 @@ ActiveAdmin.register PetGroup do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :total_pets, :image
+  permit_params :name, :total_pets, :image_URL, :image
+
+  form do |f|
+    f.semantic_errors # show errors on :base
+    f.inputs          # builds an input field for every attribute
+    f.inputs do
+      f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image) : ""
+    end
+    f.actions # Adds the "submit" and "cancel" buttons
+  end
   #
   # or
   #
@@ -14,5 +23,5 @@ ActiveAdmin.register PetGroup do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end

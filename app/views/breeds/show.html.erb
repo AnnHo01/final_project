@@ -13,7 +13,15 @@
 
   <div class="col-sm-4">
     <div class="d-inline float-end margin-top">
-      <img src="<%= @breed.image %>" alt="<%= @breed.name %> image">
+      <% if @breed.image.present? %>
+        <div class="card-image">
+          <figure class="image">
+            <%= image_tag @breed.image %>
+          </figure>
+        </div>
+      <% else %>
+        <img src="<%= @breed.image_URL %>" alt="<%= @breed.name %> image" />
+      <% end %>
     </div>
   </div>
 </div>
