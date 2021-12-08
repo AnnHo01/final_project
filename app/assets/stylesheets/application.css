@@ -16,6 +16,13 @@
  body{
   font-family: "Poppins";
 }
+.cart{
+  width: 60px;
+  height: auto;
+}
+ul li{
+  list-style: none;
+}
 .navbar-brand{
   color: #b19777 !important;
   font-weight: 700;

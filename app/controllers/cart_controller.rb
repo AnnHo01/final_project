@@ -11,7 +11,7 @@ class CartController < ApplicationController
     breed = Breed.find(breed_id)
     flash[:notice] = "➕ #{breed.name} added to cart."
 
-    redirect_to root_path
+    redirect_to pet_groups_path
   end
 
   # DELETE /cart/:id
@@ -24,6 +24,6 @@ class CartController < ApplicationController
     breed = Breed.find(breed_id)
     flash[:notice] = "➖ #{breed.name} Removed from cart."
 
-    redirect_to root_path
+    redirect_to pet_groups_path
   end
 end
