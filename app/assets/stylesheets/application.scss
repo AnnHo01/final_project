@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+$main-color: #ae9679;
+$beige: #b19777;
+$dark: #252531;
+
+body{
+  font-family: "Poppins";
+
+  ul{
+    li{
+      list-style: none;
+
+      a{
+        text-decoration: none;
+        color: #fff !important;
+
+        &.dropdown-item{
+          color: $dark !important;
+        }
+
+        &:hover{
+          color: $beige !important;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .cart{
+    width: 60px;
+    height: auto;
+  }
+
+  .navbar-brand{
+    color: $beige !important;
+    font-weight: 700;
+    font-size: 40px !important;
+  }
+
+  h2{
+    margin: 50px 0 20px !important;
+    font-weight: 700;
+  }
+
+  h3{
+    margin-bottom: 20px !important;
+    font-weight: 700;
+  }
+
+  div{
+    a{
+      text-decoration: none;
+      color: $dark;
+
+      &:hover{
+        text-decoration: none;
+        color: $beige;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .bold{
+    font-weight: 700;
+  }
+
+  .light{
+    font-weight: 400 !important;
+  }
+
+  .margin-top{
+    margin-top: 50px;
+  }
+
+  .page{
+    padding: 0 10px;
+    color: $main-color !important;
+    font-weight: 700;
+  }
+
+  .next, .last, .first, .prev{
+    padding: 0 5px;
+    color: $main-color !important;
+    font-weight: 500;
+
+    a{
+      color: $main-color !important;
+    }
+  }
+
+}
