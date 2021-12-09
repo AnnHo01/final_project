@@ -5,4 +5,14 @@ class Breed < ApplicationRecord
   validates :name, uniqueness: true
   validates :name, :price, presence: true
   validates :price, numericality: true
+
+  def to_builder
+    Jbuilder.new do |breed|
+      breed.name name
+      breed.amount price.round(2)
+      breed.quantity 1
+      breed.description description
+      breed.currency "cad"
+    end
+  end
 end

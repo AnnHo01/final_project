@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="float-end margin-top">
+      <%= link_to image_tag("cart.png", class: 'cart'), root_path %>
+      <ul>
+        <li>
+          Cart
+          <% if cart.present? %>
+            <sup><%= cart.size %></sup>
+            <ul>
+              <% cart.each do |breed| %>
+                <li>
+                  <%= breed.name %> <%= link_to '➖', cart_path(breed), method: :delete %>
+                </li>
+              <% end %>
+            </ul>
+            <%= cart.collect { |item| item.to_builder.attributes! } %>
+            <%= button_to 'Check Out', checkout_create_path, remote: true %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
