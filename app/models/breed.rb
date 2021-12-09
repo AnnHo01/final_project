@@ -11,7 +11,7 @@ class Breed < ApplicationRecord
       breed.name name
       breed.amount (price.round(2) * 100).to_i
       breed.quantity 1
-      breed.description name
+      breed.description description
       breed.currency "cad"
     end
   end
