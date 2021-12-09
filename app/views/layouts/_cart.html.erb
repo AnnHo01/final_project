@@ -1,5 +1,11 @@
 <% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
+  <div class="row fixed-bottom d-flex justify-content-center">
+    <div class="col-3">
+      <div class="alert alert-info">
+        <p><%= flash[:notice] %></p>
+      </div>
+    </div>
+  </div>
 <% end %>
 <div class="row">
   <div class="col-sm-12">
