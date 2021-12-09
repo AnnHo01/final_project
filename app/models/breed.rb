@@ -9,9 +9,9 @@ class Breed < ApplicationRecord
   def to_builder
     Jbuilder.new do |breed|
       breed.name name
-      breed.amount price.round(2)
+      breed.amount (price.round(2) * 100).to_i
       breed.quantity 1
-      breed.description description
+      breed.description name
       breed.currency "cad"
     end
   end
