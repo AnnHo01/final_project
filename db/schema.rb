@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_005335) do
+ActiveRecord::Schema.define(version: 2021_12_16_040716) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -89,11 +89,12 @@ ActiveRecord::Schema.define(version: 2021_12_16_005335) do
     t.string "first_name"
     t.string "last_name"
     t.string "country"
-    t.string "prov"
     t.string "city"
     t.text "street"
     t.string "potal_code"
+    t.integer "province_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["province_id"], name: "index_customers_on_province_id"
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
@@ -124,8 +125,17 @@ ActiveRecord::Schema.define(version: 2021_12_16_005335) do
     t.index ["breed_id"], name: "index_pets_on_breed_id"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.decimal "gst"
+    t.decimal "pst"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "breeds", "pet_groups"
+  add_foreign_key "customers", "provinces"
   add_foreign_key "pets", "breeds"
 end
