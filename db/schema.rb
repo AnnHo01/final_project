@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_043248) do
+ActiveRecord::Schema.define(version: 2021_12_16_053355) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -66,6 +66,17 @@ ActiveRecord::Schema.define(version: 2021_12_16_043248) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "breed_orders", force: :cascade do |t|
+    t.decimal "price"
+    t.integer "quantity"
+    t.integer "order_id", null: false
+    t.integer "breed_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["breed_id"], name: "index_breed_orders_on_breed_id"
+    t.index ["order_id"], name: "index_breed_orders_on_order_id"
+  end
+
   create_table "breeds", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -95,6 +106,18 @@ ActiveRecord::Schema.define(version: 2021_12_16_043248) do
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["province_id"], name: "index_customers_on_province_id"
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal "total"
+    t.integer "customer_id", null: false
+    t.string "status"
+    t.decimal "gst"
+    t.decimal "pst"
+    t.decimal "hst"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -135,7 +158,10 @@ ActiveRecord::Schema.define(version: 2021_12_16_043248) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "breed_orders", "breeds"
+  add_foreign_key "breed_orders", "orders"
   add_foreign_key "breeds", "pet_groups"
   add_foreign_key "customers", "provinces"
+  add_foreign_key "orders", "customers"
   add_foreign_key "pets", "breeds"
 end
