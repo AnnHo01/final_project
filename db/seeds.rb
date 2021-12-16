@@ -1,4 +1,5 @@
 require 'csv'
+require 'uri'
 
 Pet.delete_all
 Order.delete_all
@@ -72,7 +73,7 @@ pets.each do |p|
           name:  sf['breeds/name'],
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "Gathering information",
-          image_URL: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{sf['breeds/name'].split("/")[0]}" , "pet"], match_all: true)
+          image_URL: URI.encode(Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{sf['breeds/name'].split("/")[0]}" , "pet"], match_all: true))
         )
       end
     end
@@ -84,7 +85,7 @@ pets.each do |p|
           name:  rab['breeds/name'],
           price: Faker::Number.between(from: 0.00, to: 20000.00),
           description: "Gathering information",
-          image_URL: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{rab['breeds/name'].split("/")[0]}" , "rabbit"], match_all: true)
+          image_URL: URI.encode(Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{rab['breeds/name'].split("/")[0]}" , "rabbit"], match_all: true))
         )
       end
     end

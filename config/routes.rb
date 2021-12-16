@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :customers
+  post 'cart/summary', to: 'cart#summary', as: 'cart_summary'
+  get 'cart/summary', :to => 'cart#summary'
+  post 'cart/update', to: 'cart#update', as: 'cart_update'
   get 'pages/:permalink' => 'pages#permalink' , as: 'permalink' #using it in ruby: permalink_path
   root :to => "pet_groups#index"
   resources :breeds, only: [:index, :show] do

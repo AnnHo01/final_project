@@ -17,15 +17,9 @@
         <% end %>
         <p><%= link_to breed.name, breed %></p>
         <p><%= number_to_currency breed.price %></p>
-
-
-        <%# if cart.include?(breed) %>
-          <%#= button_to cart_path(breed), method: :delete do %>
-            <%# Remove From Cart %>
-          <%# end %>
-        <%# else %>
           <%= form_with url: cart_index_path, method: :post do %>
             <%= hidden_field_tag(:id, breed.id) %>
+            <%= number_field_tag :qty, '1' %>
             <%= button_tag 'Add to Cart' %>
           <% end %>
         <%# end %>
