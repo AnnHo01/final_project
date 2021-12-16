@@ -1,6 +1,8 @@
 require 'csv'
 
 Pet.delete_all
+Order.delete_all
+Customer.delete_all
 Province.delete_all
 Breed.delete_all
 PetGroup.delete_all

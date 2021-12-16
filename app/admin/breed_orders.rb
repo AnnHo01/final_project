@@ -1,16 +1,16 @@
-ActiveAdmin.register Order do
+ActiveAdmin.register BreedOrder do
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :total, :customer_id, :status, :gst, :pst, :hst
+  permit_params :price, :quantity, :order_id, :breed_id
   #
   # or
   #
   # permit_params do
-  #   permitted = [:total, :customer_id, :status, :gst, :pst, :hst]
+  #   permitted = [:price, :quantity, :order_id, :breed_id]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
