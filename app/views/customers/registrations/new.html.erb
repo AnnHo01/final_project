@@ -29,13 +29,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :prov %><br />
-    <%= f.text_field :prov %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
+    <%= f.label :province %><br />
+    <%= f.collection_select :province, Province.order(:name), :id, :name %>
   </div>
 
   <div class="field">
