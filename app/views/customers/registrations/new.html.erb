@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= f.label :province %><br />
-    <%= f.collection_select :province, Province.order(:name), :id, :name %>
+    <%= f.collection_select :province_id, Province.order(:name), :id, :name %>
   </div>
 
   <div class="field">
