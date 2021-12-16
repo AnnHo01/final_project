@@ -1,0 +1,14 @@
+﻿province,symbol,name,PST,GST,HST,Total_Tax_Rate
+Alberta,AB,Alberta,,0.05,,0.05
+British Columbia,BC,British Columbia,0.07,0.05,,0.12
+Manitoba,MB,Manitoba,0.07,0.05,,0.12
+New Brunswick,NB,New Brunswick,,,0.15,0.15
+Newfoundland and Labrador,NL,Newfoundland and Labrador,,,0.15,0.15
+Northwest Territories,NT,Northwest Territories,,0.05,,0.05
+Nova Scotia,NS,Nova Scotia,,,0.15,0.15
+Nunavut,NU,Nunavut,,0.05,,0.05
+Ontario,ON,Ontario,,,0.13,0.13
+Prince Edward Island,PE,Prince Edward Island,,,0.15,0.15
+Quebec,QC,Quebec,0.1,0.05,,0.15
+Saskatchewan,SK,Saskatchewan,0.06,0.05,,0.11
+Yukon,YT,Yukon,,0.05,,0.05

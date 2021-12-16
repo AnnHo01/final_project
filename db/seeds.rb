@@ -1,6 +1,7 @@
 require 'csv'
 
 Pet.delete_all
+Province.delete_all
 Breed.delete_all
 PetGroup.delete_all
 Page.delete_all
@@ -11,18 +12,22 @@ file1 = Rails.root.join("db/cats.csv")
 file2 = Rails.root.join("db/dogs.csv")
 file3 = Rails.root.join("db/small-furry.csv")
 file4 = Rails.root.join("db/rabbits.csv")
+file5 = Rails.root.join("db/TaxRates.csv")
 
 puts "Loading cats, dogs, and small animals data from CSV files"
+puts "Loading provincial sales taxes data from CSV files"
 
 data1 = File.read(file1)
 data2 = File.read(file2)
 data3 = File.read(file3)
 data4 = File.read(file4)
+data5 = File.read(file5)
 
 cats = CSV.parse(data1, headers: true, encoding: "utf-8")
 dogs = CSV.parse(data2, headers: true, encoding: "utf-8")
 furries = CSV.parse(data3, headers: true, encoding: "utf-8")
 rabbits = CSV.parse(data4, headers: true, encoding: "utf-8")
+provinces = CSV.parse(data5, headers: true, encoding: "utf-8")
 
 pets = ["Dog", "Cat", "Small Furry", "Rabbits"]
 
@@ -86,6 +91,16 @@ pets.each do |p|
   end
 end
 
+provinces.each do |prov|
+  # Create province sale taxes data
+  province = Province.find_or_create_by(
+    name: prov['name'],
+    gst: prov['GST'],
+    pst: prov['PST'],
+    hst: prov['HST']
+  )
+end
+
 Page.create(
   title: 'About Us',
   content: 'At Happy House Pet Adoption, we value pets and always seeks for a loving home for our adorable “tenants” at Happy House. We mainly rescue dogs, cats, and small animals such as hamsters, guinea pigs, and rabbits./
@@ -100,3 +115,4 @@ Page.create(
 puts "#{PetGroup.count} PetGroup created"
 puts "#{Breed.count} Breeds created"
 puts "#{Page.count} Pages created"
+puts "#{Province.count} Provinces created"
